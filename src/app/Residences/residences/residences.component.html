@@ -23,17 +23,17 @@
     </div>
     <h3>Liked Residences</h3>
     <div class="container">
-  <div class="row">
-    <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-4" *ngFor="let res of listResidencesFavorite">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{res.name}}</h5>
-          <p class="card-text">{{res.address}}</p>
-          <button (click)="LikeRes(res.id)" class="btn btn-danger">Unlike</button>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-4" *ngFor="let res of listResidencesFavorite">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{res.name}}</h5>
+              <p class="card-text">{{res.address}}</p>
+              <button (click)="LikeRes(res.id)" class="btn btn-danger">Unlike</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
     </div>
   </div>
 </div>
