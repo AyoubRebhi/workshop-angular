@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apartment } from 'src/app/models/apartment';
 import { Residence } from 'src/app/models/residence';
-import { ApartementsService } from 'src/app/services/apartements.service';
+import { ApartmentsService } from 'src/app/services/apartements.service';
 
 @Component({
   selector: 'app-apartments-by-residence',
@@ -11,7 +11,7 @@ import { ApartementsService } from 'src/app/services/apartements.service';
 })
 export class ApartmentsByResidenceComponent implements OnInit{
   
-  constructor(private apartmentService: ApartementsService, private route: ActivatedRoute) { }
+  constructor(private apartmentService: ApartmentsService, private route: ActivatedRoute) { }
 
 
   apartments! : Apartment[];

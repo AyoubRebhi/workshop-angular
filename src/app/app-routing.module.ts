@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   {path: 'apartments/:id', component: ApartmentsByResidenceComponent},
   {path: 'residences/:id', component: ResidenceDetailsComponent},
+  {path: 'add-residence', component: AddResidenceComponent},
   {path: 'addResidence', component: AddResidenceComponent},
   {path: 'add-apartment', component: AddApartmentComponent},
   {path: 'updateResidence/:id', component: AddResidenceComponent},

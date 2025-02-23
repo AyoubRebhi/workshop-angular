@@ -4,7 +4,7 @@ import { Apartment } from '../models/apartment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApartementsService {
+export class ApartmentsService {
 
   listApartments: Apartment[]=[];
 
@@ -15,6 +15,7 @@ export class ApartementsService {
   }
 
   addApartment(apart : Apartment): void {
+    apart.id = this.listApartments.length + 1;
     this.listApartments.push(apart);
   }
 

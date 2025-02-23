@@ -4,7 +4,7 @@
     <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-4" *ngFor="let res of listResidencesFiltered">
       <div class="card" style="width: 18rem;">
         <div class="card-body text-center">
-          <img [src]="res.image" alt="{{ res.name }}" width="150" class="rounded float-left img-fluid">
+          <img src="{{res.image}}" alt="error" class="rounded float-left img-fluid">
           <h5 class="card-title">{{res.name}}</h5>
           <p *ngIf="res.locationShown" class="card-text">{{res.address}}</p>
           <div [ngSwitch]="res.status">
@@ -17,25 +17,10 @@
           <button (click)="ShowLocation(res.id)" class="btn btn-secondary">Show Location</button>
           <button (click)="LikeRes(res.id)" class="btn btn-secondary">Like</button>
 
-          
-        </div>
-      </div>
-    </div>
-    <h3>Liked Residences</h3>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-4" *ngFor="let res of listResidencesFavorite">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{res.name}}</h5>
-              <p class="card-text">{{res.address}}</p>
-              <button (click)="LikeRes(res.id)" class="btn btn-danger">Unlike</button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<a (click)="addRes()" class="btn btn-primary">Add Residence</a>
 

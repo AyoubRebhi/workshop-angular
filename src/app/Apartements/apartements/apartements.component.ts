@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Apartment } from 'src/app/models/apartment';
-import { ApartementsService } from 'src/app/services/apartements.service';
+import { ApartmentsService } from 'src/app/services/apartements.service';
 
 @Component({
   selector: 'app-apartments',
@@ -11,14 +11,14 @@ import { ApartementsService } from 'src/app/services/apartements.service';
 })
 export class ApartmentsComponent implements OnInit {
 
-  constructor (private apartementsService : ApartementsService, private router : Router) {}
+  constructor (private ApartmentsService : ApartmentsService, private router : Router) {}
 
     @ViewChild('f') myForm: NgForm | undefined; 
     apart! : Apartment ; 
     apartments : Apartment[] = [];
 
     ngOnInit(): void {
-      this.apartments = this.apartementsService.getApartments();
+      this.apartments = this.ApartmentsService.getApartments();
     }
 
     addApartment(){
@@ -38,7 +38,7 @@ export class ApartmentsComponent implements OnInit {
         this.apart.apartNum = this.myForm?.value['apartNum'];
         this.apart.floorNum = this.myForm?.value['floorNum'];
         console.log(this.apart);
-        this.apartementsService.addApartment(this.apart);
+        this.ApartmentsService.addApartment(this.apart);
 
 
 

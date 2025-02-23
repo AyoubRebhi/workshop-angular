@@ -1,27 +1,42 @@
+/* Structure pour que le footer reste en bas */
 html, body {
     height: 100%;
-    margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+.main-content {
+    flex: 1; /* Permet au contenu principal de prendre tout l'espace disponible */
 }
 
-main {
-    flex: 1; /* Pushes the footer to the bottom */
-    padding: 20px;
-}
-app-header {
-    margin-bottom: 20px;
+.footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
-main {
-    padding: 20px;
+/* Style du bouton "Retour en haut" */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
-app-footer {
-    margin-top: 20px;
+.back-to-top:hover {
+    background-color: #0056b3;
+    color: white;
 }
+
+/* Afficher le bouton lorsque l'utilisateur défile */
+body.scrolled .back-to-top {
+    display: block;
+}
+    

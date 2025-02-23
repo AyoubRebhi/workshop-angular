@@ -1,3 +1,4 @@
+import { CommonModule, NgClass, NgIf, NgSwitch } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Residence } from 'src/app/models/residence';
@@ -5,7 +6,12 @@ import { ResidenceService } from 'src/app/services/residence.service';
 @Component({
   selector: 'app-residences',
   templateUrl: './residences.component.html',
-  styleUrls: ['./residences.component.css']
+  styleUrls: ['./residences.component.css'],
+  imports: [
+    CommonModule
+  ],
+  providers:[],
+  standalone: true,
 })
 
 
@@ -21,6 +27,11 @@ export class ResidencesComponent implements OnInit {
   ngOnInit(): void {
     this.residenceService.getResidences().subscribe(residences => this.listResidences = residences);
     this.listResidencesFiltered = this.listResidences;
+    console.log(this.listResidences);
+  }
+
+  addRes(){
+    this.router.navigate(['/add-residence']);
   }
 
 
@@ -33,23 +44,10 @@ export class ResidencesComponent implements OnInit {
       } 
    }
 
-   LikeRes(id: number) {
-    const residence = this.listResidences.find(res => res.id === id);
-    if (!residence) return;
-  
-    const index = this.listResidencesFavorite.findIndex(res => res.id === id);
-    
-    if (index === -1) {
-      // If not already liked, add to favorites
-      this.listResidencesFavorite.push(residence);
-    } else {
-      // If already liked, remove from favorites
-      this.listResidencesFavorite.splice(index, 1);
-    }
-  
-    console.log("Favorite Residences: ", this.listResidencesFavorite);
-  }
-  
+   LikeRes(id: number){
+    console.log(this.listResidencesFavorite);
+    this.listResidencesFavorite.push(this.listResidences[id-1]);
+   }
 
    filterResults(text: string) {
     if (!text) {
